@@ -13,7 +13,7 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(starship init bash)"
 
 # z
-source ~/.z.sh
+source ~/.bash/z.sh
 
 # fzf
 source ~/.local/share/nvim/plugged/fzf/shell/completion.bash
