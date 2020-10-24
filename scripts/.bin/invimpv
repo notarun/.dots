@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#
+# Copies the url from firefox and send it to mpv
+#
+# FIXME: invidio.us is gone modify to use another instance
+
+xdotool search --onlyvisible --class Firefox key --window %@ 'ctrl+l' 'ctrl+c' 'Tab'
+
+url=`xclip -o -selection clipboard`
+
+if [[ ${url:0:19} = 'https://invidio.us/' ]]; then
+    mpv "$url" --ytdl-format=22
+fi
