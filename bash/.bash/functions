@@ -17,3 +17,8 @@ man() {
 cj() {
     curl "$1" -s | jq
 }
+
+# source a file if it exists
+include() {
+    [[ -f $1 ]] && source $1
+}

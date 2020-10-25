@@ -33,5 +33,4 @@ alias gch='git checkout'
 alias pa='php artisan'
 
 # load local aliases
-local_aliases_file = '~/.bash/local_aliases'
-test -f $local_aliases && source $local_aliases
+include ~/.bash/local_aliases
