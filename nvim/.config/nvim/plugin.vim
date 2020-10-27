@@ -73,7 +73,7 @@ let g:lightline = {
       \     'buffers': 'tabsel'
       \ },
       \ 'component_function': {
-      \     'filepath': 'LightlineFilePath',
+      \     'filepath': 'RelativeFilePath',
       \     'gitbranch': 'FugitiveHead',
       \ },
       \ 'bufferline': {

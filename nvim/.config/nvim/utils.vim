@@ -7,8 +7,8 @@
 "          UTILITY FUNCTIONS
 
 
-" Returns relative path to the file from where vim was started
-function! LightlineFilePath()
+" Returns relative path to the open file from where vim was started
+function! RelativeFilePath()
     let fullPath = expand('%:p')
     let cwd = getcwd()
     return fullPath[len(cwd) + 1:]
