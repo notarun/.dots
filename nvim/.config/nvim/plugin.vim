@@ -30,6 +30,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'AndrewRadev/splitjoin.vim'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'mengelbrecht/lightline-bufferline'
+    Plug 'matze/vim-meson'
     Plug 'notarun/snipmate.vim'
 call plug#end()
 
