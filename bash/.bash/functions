@@ -22,15 +22,3 @@ cj() {
 include() {
     [[ -f $1 ]] && source $1
 }
-
-# ytdl update (https://github.com/blackjack4494/yt-dlc)
-ytdl-update() {
-    url=https://github.com/blackjack4494/yt-dlc/releases/latest/download/youtube-dlc
-    install_path=/usr/local/bin/youtube-dl
-
-    sudo curl -s -L $url -o $install_path
-    echo 'downloaded'
-
-    sudo chmod a+rx $install_path
-    echo 'executable permission set'
-}
