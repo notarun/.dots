@@ -13,6 +13,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'zefei/cake16'
     Plug 'posva/vim-vue'
     Plug 'mattn/emmet-vim'
+    Plug 'matze/vim-meson'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'dense-analysis/ale'
@@ -26,11 +27,11 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'rbgrouleff/bclose.vim'
     Plug 'unblevable/quick-scope'
     Plug 'pangloss/vim-javascript'
+    Plug 'itchyny/vim-highlighturl'
     Plug 'charmander/vim-razorleaf'
     Plug 'AndrewRadev/splitjoin.vim'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'mengelbrecht/lightline-bufferline'
-    Plug 'matze/vim-meson'
     Plug 'notarun/snipmate.vim'
 call plug#end()
 
