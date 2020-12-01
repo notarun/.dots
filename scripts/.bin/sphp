@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+#                __
+#    _________  / /_  ____
+#   / ___/ __ \/ __ \/ __ \
+#  (__  ) /_/ / / / / /_/ /
+# /____/ .___/_/ /_/ .___/
+#     /_/         /_/
+#
+# requirements: ubuntu, apache
+#
+# PPA for old php version: https://launchpad.net/~ondrej/+archive/ubuntu/php
+
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root"
+   exit 1
+fi
+
+if [ $# != 2 ]; then
+    echo "usage: $0 from_version to_version";
+    exit 1;
+fi
+
+from_version=$1
+to_version=$2
+
+a2dismod "php$1"
+a2enmod "php$2"
+update-alternatives --set php "/usr/bin/php$2"
+systemctl restart apache2.service
