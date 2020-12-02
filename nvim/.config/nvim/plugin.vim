@@ -20,7 +20,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'preservim/nerdtree'
     Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-commentary'
+    Plug 'tomtom/tcomment_vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'jwalton512/vim-blade'
     Plug 'itchyny/lightline.vim'
