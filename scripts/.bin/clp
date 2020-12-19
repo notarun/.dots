@@ -1,8 +1,0 @@
-#!/bin/bash
-
-#
-# Sends color under cursor to xclip
-#
-# TODO: show notification on success
-
-colorpicker --short --one-shot | xclip -selection clipboard
