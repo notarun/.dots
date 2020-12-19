@@ -22,3 +22,8 @@ cj() {
 include() {
     [[ -f $1 ]] && source $1
 }
+
+# fzf + figlet
+ffig() {
+    figlet -f $(figlist | tail +4 | head -18 | fzf) $1
+}
