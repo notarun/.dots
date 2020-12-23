@@ -5,6 +5,11 @@
 " /_/_/ /_/_/\__(_)___/_/_/ /_/ /_/
 "
 
+" external
+source ~/.config/nvim/keys.vim    " keybindings
+source ~/.config/nvim/utils.vim   " utility functions
+source ~/.config/nvim/plugin.vim  " plugin configurations
+
 " general
 set hidden
 set nobackup
@@ -25,29 +30,17 @@ set showmatch
 set smartcase
 set ignorecase
 
-" clipboard
-set clipboard^=unnamed,unnamedplus
-
-" disable netrw
-let loaded_netrwPlugin = 1
-
-" undo after file close
-set undofile
-
-
-" external
-source ~/.config/nvim/keys.vim    " keybindings
-source ~/.config/nvim/utils.vim   " utility functions
-source ~/.config/nvim/plugin.vim  " plugin configurations
+" misc
+set clipboard^=unnamed,unnamedplus  " use system clipboard
+let loaded_netrwPlugin = 1          " disable netrw
+set undofile                        " undo after file close
+set completeopt-=preview            " hide preview window in completion mode
 
 " loadup session.vim if available
 if SessionVimExists()
     source session.vim
     echo 'Sourced session.vim'
 endif
-
-" completeopt
-set completeopt-=preview
 
 " ui
 set number
