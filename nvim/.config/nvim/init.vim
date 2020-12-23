@@ -31,6 +31,10 @@ set clipboard^=unnamed,unnamedplus
 " disable netrw
 let loaded_netrwPlugin = 1
 
+" undo after file close
+set undofile
+
+
 " external
 source ~/.config/nvim/keys.vim    " keybindings
 source ~/.config/nvim/utils.vim   " utility functions
