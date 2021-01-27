@@ -53,4 +53,5 @@ set termguicolors
 set colorcolumn=82
 set list listchars=tab:\ \ ,trail:~,nbsp:⋅
 set background=light
-colorscheme cake16
+" colorscheme cake16
+colorscheme wombat

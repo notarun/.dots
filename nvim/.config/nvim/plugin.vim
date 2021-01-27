@@ -11,6 +11,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
     Plug 'mxw/vim-jsx'
     Plug 'zefei/cake16'
+    Plug 'sheerun/vim-wombat-scheme'
     Plug 'posva/vim-vue'
     Plug 'mattn/emmet-vim'
     Plug 'matze/vim-meson'
@@ -59,7 +60,7 @@ augroup END
 set showtabline=2
 
 let g:lightline = {
-      \ 'colorscheme': 'OldHope',
+      \ 'colorscheme': 'wombat',
       \ 'active': {
       \     'left': [['mode', 'paste'],
       \              ['gitbranch', 'readonly', 'filepath', 'modified']],
