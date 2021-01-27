@@ -9,7 +9,6 @@
 "               powered by vim-plug
 
 call plug#begin('~/.local/share/nvim/plugged')
-    Plug 'mxw/vim-jsx'
     Plug 'zefei/cake16'
     Plug 'sheerun/vim-wombat-scheme'
     Plug 'posva/vim-vue'
@@ -28,6 +27,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'rbgrouleff/bclose.vim'
     Plug 'unblevable/quick-scope'
     Plug 'pangloss/vim-javascript'
+    Plug 'MaxMEllon/vim-jsx-pretty'
     Plug 'itchyny/vim-highlighturl'
     Plug 'charmander/vim-razorleaf'
     Plug 'AndrewRadev/splitjoin.vim'
