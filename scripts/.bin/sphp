@@ -8,23 +8,31 @@
 #     /_/         /_/
 #
 # requirements: ubuntu, apache
+# usage: sudo ./sphp php_version
 #
 # PPA for old php version: https://launchpad.net/~ondrej/+archive/ubuntu/php
+
+# bash strict mode
+set -euo pipefail
+IFS=$'\n\t'
 
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root"
    exit 1
 fi
 
-if [ $# != 2 ]; then
-    echo "usage: $0 from_version to_version";
+if [ $# != 1 ]; then
+    echo "usage: $0 to_version";
     exit 1;
 fi
 
-from_version=$1
-to_version=$2
+resp=$(php -v)
 
-a2dismod "php$1"
-a2enmod "php$2"
-update-alternatives --set php "/usr/bin/php$2"
+from_version="php${resp:4:3}"
+to_version="php$1"
+
+a2dismod "$from_version"
+a2enmod "$to_version"
+
+update-alternatives --set php "/usr/bin/$to_version"
 systemctl restart apache2.service
