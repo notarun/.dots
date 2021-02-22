@@ -22,6 +22,7 @@ source ~/.local/share/nvim/plugged/fzf/shell/key-bindings.bash
 # bash-completion
 source /etc/profile.d/bash_completion.sh
 source /usr/share/bash-completion/completions/git
+source ~/.local/bin/aws_bash_completer
 
 source ~/.bash/functions
 source ~/.bash/aliases
