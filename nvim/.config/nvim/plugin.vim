@@ -32,6 +32,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'charmander/vim-razorleaf'
     Plug 'AndrewRadev/splitjoin.vim'
     Plug 'editorconfig/editorconfig-vim'
+    Plug 'vim-scripts/groovyindent-unix'
+    Plug 'martinda/Jenkinsfile-vim-syntax'
     Plug 'mengelbrecht/lightline-bufferline'
     Plug 'notarun/snipmate.vim'
 call plug#end()
