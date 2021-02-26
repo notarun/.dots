@@ -13,8 +13,3 @@ function! RelativeFilePath()
     let cwd = getcwd()
     return fullPath[len(cwd) + 1:]
 endfunction
-
-" Check if session.vim exists in current directory
-function! SessionVimExists()
-    return !empty(glob('session.vim'))
-endfunction

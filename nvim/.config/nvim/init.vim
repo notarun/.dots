@@ -36,12 +36,6 @@ let loaded_netrwPlugin = 1          " disable netrw
 set undofile                        " undo after file close
 set completeopt-=preview            " hide preview window in completion mode
 
-" loadup session.vim if available
-if SessionVimExists()
-    source session.vim
-    echo 'Sourced session.vim'
-endif
-
 " ui
 set number
 set nowrap
