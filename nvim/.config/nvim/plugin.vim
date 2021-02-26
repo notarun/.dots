@@ -85,3 +85,8 @@ let g:lightline = {
       \     'filename_modifier': ':t',
       \ },
       \ }
+
+" ale (dense-analysis/ale)
+" Enable completion where available
+let g:ale_completion_enabled = 0
+set omnifunc=ale#completion#OmniFunc
