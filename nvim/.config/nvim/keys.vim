@@ -15,7 +15,6 @@ nnoremap k gk
 nnoremap vv v$h
 inoremap jk <esc>
 nnoremap Y <esc>v$y
-nnoremap <cr> o<esc>
 nnoremap <space><space> <esc>:nohlsearch<CR>
 
 " ctrl-s to save
@@ -35,3 +34,8 @@ map <c-l> <c-w>l
 
 " edit init.vim
 nnoremap <leader>i <esc>:e $MYVIMRC<cr>
+
+" RETURN key
+"  - if current window is a `quick fix list` call `:.cc`
+"  - else use `o` to add a new line
+nnoremap <expr> <cr> CurrentWinIsQuickFix() ? ':.cc<cr>' : 'o<esc>'

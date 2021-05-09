@@ -13,3 +13,9 @@ function! RelativeFilePath()
     let cwd = getcwd()
     return fullPath[len(cwd) + 1:]
 endfunction
+
+" Returns if the current window is a quickfix window
+" https://stackoverflow.com/a/53491991
+function! CurrentWinIsQuickFix()
+    return getwininfo(win_getid())[0]['quickfix']
+endfunction
