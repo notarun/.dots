@@ -21,6 +21,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'tpope/vim-surround'
     Plug 'tomtom/tcomment_vim'
+    Plug 'lambdalisue/suda.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'jwalton512/vim-blade'
     Plug 'itchyny/lightline.vim'
@@ -92,3 +93,6 @@ let g:lightline = {
 " Enable completion where available
 let g:ale_completion_enabled = 0
 set omnifunc=ale#completion#OmniFunc
+
+" suda (lambdalisue/suda.vim)
+let g:suda_smart_edit = 1
