@@ -39,3 +39,8 @@ nnoremap <leader>i <esc>:e $MYVIMRC<cr>
 "  - if current window is a `quick fix list` call `:.cc`
 "  - else use `o` to add a new line
 nnoremap <expr> <cr> CurrentWinIsQuickFix() ? ':.cc<cr>' : 'o<esc>'
+
+" ale lsp features
+nnoremap <silent> <M-d> :ALEGoToDefinition<cr>
+nnoremap <silent> <M-r> :ALEFindReferences<cr>
+nnoremap <silent> <M-h> :ALEHover<cr>
