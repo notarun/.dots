@@ -90,6 +90,9 @@ let g:lightline = {
       \ }
 
 " ale (dense-analysis/ale)
+let g:ale_floating_preview = 1
+let g:ale_floating_window_border = 0
+
 " Enable completion where available
 let g:ale_completion_enabled = 0
 set omnifunc=ale#completion#OmniFunc
