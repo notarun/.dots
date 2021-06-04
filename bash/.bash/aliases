@@ -29,6 +29,7 @@ alias gs='git status'
 alias gc='git commit -v'
 alias gpu='git pull'
 alias gcl='git clone'
+alias gmr='git merge'
 alias gch='git checkout'
 alias gchm='git checkout -- $(git ls-files -m | fzf -m)'  # checkout multiple files (fzf)
 
