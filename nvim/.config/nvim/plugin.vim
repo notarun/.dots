@@ -63,39 +63,36 @@ augroup END
 set showtabline=2
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \     'left': [['mode', 'paste'],
-      \              ['gitbranch', 'readonly', 'filepath', 'modified']],
-      \ },
-      \ 'tabline': {
-      \     'left': [['buffers']],
-      \     'right': [['close']],
-      \ },
-      \ 'component_expand': {
-      \     'buffers': 'lightline#bufferline#buffers',
-      \ },
-      \ 'component_type': {
-      \     'buffers': 'tabsel'
-      \ },
-      \ 'component_function': {
-      \     'filepath': 'RelativeFilePath',
-      \     'gitbranch': 'FugitiveHead',
-      \ },
-      \ 'bufferline': {
-      \     'show_number': 0,
-      \     'shorten_path': 0,
-      \     'filename_modifier': ':t',
-      \ },
-      \ }
+\   'colorscheme': 'wombat',
+\   'active': {
+\       'left': [['mode', 'paste'],
+\                ['gitbranch', 'readonly', 'filepath', 'modified']],
+\   },
+\   'tabline': {
+\       'left': [['buffers']],
+\       'right': [['close']],
+\   },
+\   'component_expand': {
+\       'buffers': 'lightline#bufferline#buffers',
+\   },
+\   'component_type': {
+\       'buffers': 'tabsel'
+\   },
+\   'component_function': {
+\       'filepath': 'RelativeFilePath',
+\       'gitbranch': 'FugitiveHead',
+\   },
+\   'bufferline': {
+\       'show_number': 0,
+\       'shorten_path': 0,
+\       'filename_modifier': ':t',
+\   },
+\ }
 
 " ale (dense-analysis/ale)
 let g:ale_floating_preview = 1
-let g:ale_floating_window_border = 0
-
-" Enable completion where available
-let g:ale_completion_enabled = 0
-set omnifunc=ale#completion#OmniFunc
+let g:ale_completion_enabled = 1
+let g:ale_floating_window_border = [' ', ' ', '', '', '', '']
 
 " suda (lambdalisue/suda.vim)
 let g:suda_smart_edit = 1
