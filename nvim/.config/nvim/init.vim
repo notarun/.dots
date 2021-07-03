@@ -49,3 +49,6 @@ set list listchars=tab:\ \ ,trail:~,nbsp:⋅
 set background=light
 " colorscheme cake16
 colorscheme wombat
+
+" no number when in terminal mode
+autocmd TermOpen * setlocal nonumber
