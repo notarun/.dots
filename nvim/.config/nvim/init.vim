@@ -52,3 +52,7 @@ colorscheme wombat
 
 " no number when in terminal mode
 autocmd TermOpen * setlocal nonumber
+
+" per-project .nvimrc
+set exrc
+set secure
