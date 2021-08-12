@@ -36,6 +36,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'vim-scripts/groovyindent-unix'
     Plug 'martinda/Jenkinsfile-vim-syntax'
     Plug 'mengelbrecht/lightline-bufferline'
+    Plug 'lukas-reineke/indent-blankline.nvim', { 'for': 'yaml' }
     Plug 'notarun/snipmate.vim'
 call plug#end()
 
@@ -95,6 +96,8 @@ let g:ale_completion_enabled = 1
 let g:ale_hover_to_floating_preview = 1
 let g:ale_detail_to_floating_preview = 1
 let g:ale_floating_window_border = [' ', ' ', '', '', '', '']
+
+let g:ale_linters = {'vue': ['vls']}
 
 " suda (lambdalisue/suda.vim)
 let g:suda_smart_edit = 1
