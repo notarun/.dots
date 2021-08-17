@@ -30,7 +30,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'pangloss/vim-javascript'
     Plug 'MaxMEllon/vim-jsx-pretty'
     Plug 'itchyny/vim-highlighturl'
-    Plug 'charmander/vim-razorleaf'
     Plug 'AndrewRadev/splitjoin.vim'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'vim-scripts/groovyindent-unix'
@@ -101,3 +100,6 @@ let g:ale_linters = {'vue': ['vls']}
 
 " suda (lambdalisue/suda.vim)
 let g:suda_smart_edit = 1
+
+" indent-blankline
+let g:indent_blankline_filetype = ['yaml']
