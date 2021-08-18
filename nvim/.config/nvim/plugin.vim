@@ -16,6 +16,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'matze/vim-meson'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'vim-test/vim-test'
     Plug 'dense-analysis/ale'
     Plug 'tpope/vim-fugitive'
     Plug 'preservim/nerdtree'
@@ -103,3 +104,6 @@ let g:suda_smart_edit = 1
 
 " indent-blankline
 let g:indent_blankline_filetype = ['yaml']
+
+" vim-test/vim-test
+let test#strategy = 'neovim'
