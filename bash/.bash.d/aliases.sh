@@ -38,6 +38,3 @@ alias pa='php artisan'
 
 # xclip
 alias xc='xclip -selection clipboard'
-
-# load local aliases
-include ~/.bash/local_aliases

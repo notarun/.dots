@@ -1,20 +1,27 @@
-PLATFORM=$(uname -s)
-
-SCRIPTS_PATH=~/.bin/
-LOCAL_BIN_PATH=~/.local/bin
-COMPOSER_PATH=~/.config/composer/vendor/bin
-FZF_PATH=~/.local/share/nvim/plugged/fzf/bin
-
 # Environment variables
-export GOPATH=~/.go
-export GOBIN=~/.go/bin
-export QT_QPA_PLATFORMTHEME=qt5ct
 export EDITOR=nvim
 export BROWSER=firefox
-export MYVIMRC=~/.config/nvim/init.vim
-export PATH="${PATH}:${SCRIPTS_PATH}:${COMPOSER_PATH}:${FZF_PATH}:${LOCAL_BIN_PATH}:${GOBIN}"
-export FZF_DEFAULT_COMMAND='fdfind --type f'
+export QT_QPA_PLATFORMTHEME=qt5ct
+export MYVIMRC="$HOME/.config/nvim/init.vim"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 # neovim as manpager
 export MANPAGER="nvim -c 'set ft=man' -"
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
+    fi
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.bin" ] ; then
+    PATH="$HOME/.bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi

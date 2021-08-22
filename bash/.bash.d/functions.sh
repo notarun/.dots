@@ -18,21 +18,16 @@ cj() {
     curl "$1" -s | jq
 }
 
-# source a file if it exists
-include() {
-    [[ -f $1 ]] && source $1
-}
-
 # fzf + figlet
 ffig() {
-    figlet -f $(figlist | tail +4 | head -18 | fzf) $1
+    figlet -f "$(figlist | tail +4 | head -18 | fzf)" "$1"
 }
 
 # run nnn with -e flag and cd on quit
 # https://github.com/jarun/nnn/blob/master/misc/quitcd/quitcd.bash_zsh
 n() {
     # Block nesting of nnn in subshells
-    if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+    if [ -n "$NNNLVL" ] && [ "${NNNLVL:-0}" -ge 1 ]; then
         echo "nnn is already running"
         return
     fi
