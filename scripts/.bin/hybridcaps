@@ -8,8 +8,10 @@
 #       /____/                             /_/
 #
 #            MAPS CAPSLOCK TO CTRL & ESC
-#
-# TODO: add option to toggle state
+
+# FIXME: add option to toggle state
+# FIXME: wayland support
 
 setxkbmap -option ctrl:nocaps
+killall xcape
 xcape -e "Control_L=Escape"
