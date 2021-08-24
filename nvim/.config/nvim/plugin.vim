@@ -10,7 +10,6 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
     Plug 'zefei/cake16'
-    Plug 'sheerun/vim-wombat-scheme'
     Plug 'posva/vim-vue'
     Plug 'mattn/emmet-vim'
     Plug 'matze/vim-meson'
@@ -32,11 +31,13 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'MaxMEllon/vim-jsx-pretty'
     Plug 'itchyny/vim-highlighturl'
     Plug 'AndrewRadev/splitjoin.vim'
+    Plug 'sheerun/vim-wombat-scheme'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'vim-scripts/groovyindent-unix'
     Plug 'martinda/Jenkinsfile-vim-syntax'
     Plug 'mengelbrecht/lightline-bufferline'
     Plug 'lukas-reineke/indent-blankline.nvim', { 'for': 'yaml' }
+    Plug 'rmagatti/auto-session'
     Plug 'notarun/snipmate.vim'
 call plug#end()
 
