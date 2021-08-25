@@ -26,8 +26,7 @@ shopt -s checkwinsize
 shopt -s autocd
 
 # fzf
-# source ~/.local/share/nvim/plugged/fzf/shell/completion.bash
-# source ~/.local/share/nvim/plugged/fzf/shell/key-bindings.bash
+. /usr/share/doc/fzf/examples/key-bindings.bash
 
 # bash-completion
 if ! shopt -oq posix; then
