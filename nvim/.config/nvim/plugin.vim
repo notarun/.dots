@@ -49,6 +49,7 @@ map <c-space> :NERDTreeToggle<cr>
 
 " fuzzy finder (junegunn/fzf.vim)
 map <leader>o :Files<cr>
+map <leader>g :GitFiles<cr>
 map <leader>b :Buffers<cr>
 map <leader>t :BTags<cr>
 
