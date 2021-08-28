@@ -6,7 +6,8 @@ export MYVIMRC="$HOME/.config/nvim/init.vim"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 # neovim as manpager
-export MANPAGER="nvim -c 'set ft=man' -"
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
