@@ -44,6 +44,7 @@ nnoremap <expr> <cr> CurrentWinIsQuickFix() ? ':.cc<cr>' : 'o<esc>'
 nnoremap <silent> <M-d> :ALEGoToDefinition<cr>
 nnoremap <silent> <M-r> :ALEFindReferences<cr>
 nnoremap <silent> <M-h> :ALEHover<cr>
+nnoremap <silent> <M-i> :ALEImport<cr>
 
 " fzf tags under cursor
 nnoremap <silent> <M-t> :execute 'Tags ' . expand('<cword>')<cr>
