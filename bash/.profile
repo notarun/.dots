@@ -5,6 +5,12 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export MYVIMRC="$HOME/.config/nvim/init.vim"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
+# android
+export ANDROID_SDK_ROOT="$HOME/.android/sdk"
+export PATH="$PATH:$ANDROID_SDK_ROOT/tools/bin"
+export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
+export PATH="$PATH:$ANDROID_SDK_ROOT/emulator"
+
 # neovim as manpager
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
