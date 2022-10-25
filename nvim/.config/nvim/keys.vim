@@ -51,3 +51,6 @@ nnoremap <silent> <M-t> :execute 'Tags ' . expand('<cword>')<cr>
 
 " normal mode in terminal mode
 tnoremap jk <C-\><C-n>
+
+" keep the copied text in the register while pasting
+xnoremap <leader>p "_dP

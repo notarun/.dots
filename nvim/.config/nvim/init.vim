@@ -50,12 +50,17 @@ set cursorline
 set noshowmode
 set scrolloff=10
 set sidescroll=10
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 set colorcolumn=82
 set list listchars=tab:\ \ ,trail:~,nbsp:⋅
-set background=light
+set background=dark
 " colorscheme cake16
-colorscheme wombat
+" colorscheme wombat
+let g:gruvbox_italic=1
+let g:gruvbox_undercurl = 0
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 
 " no number when in terminal mode
 autocmd TermOpen * setlocal nonumber

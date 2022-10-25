@@ -39,6 +39,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'lukas-reineke/indent-blankline.nvim', { 'for': 'yaml' }
     Plug 'rmagatti/auto-session'
     Plug 'notarun/snipmate.vim'
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
 " emmet (mattn/emmet-vim)
@@ -66,7 +67,7 @@ augroup END
 set showtabline=2
 
 let g:lightline = {
-\   'colorscheme': 'wombat',
+\   'colorscheme': 'gruvbox',
 \   'active': {
 \       'left': [['mode', 'paste'],
 \                ['gitbranch', 'readonly', 'filepath', 'modified']],
