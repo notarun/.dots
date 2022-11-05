@@ -10,9 +10,7 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
     Plug 'zefei/cake16'
-    Plug 'posva/vim-vue'
     Plug 'mattn/emmet-vim'
-    Plug 'matze/vim-meson'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'vim-test/vim-test'
@@ -23,7 +21,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'tomtom/tcomment_vim'
     Plug 'lambdalisue/suda.vim'
     Plug 'jiangmiao/auto-pairs'
-    Plug 'jwalton512/vim-blade'
     Plug 'itchyny/lightline.vim'
     Plug 'rbgrouleff/bclose.vim'
     Plug 'unblevable/quick-scope'
@@ -33,8 +30,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'AndrewRadev/splitjoin.vim'
     Plug 'sheerun/vim-wombat-scheme'
     Plug 'editorconfig/editorconfig-vim'
-    Plug 'vim-scripts/groovyindent-unix'
-    Plug 'martinda/Jenkinsfile-vim-syntax'
     Plug 'mengelbrecht/lightline-bufferline'
     Plug 'lukas-reineke/indent-blankline.nvim', { 'for': 'yaml' }
     Plug 'rmagatti/auto-session'

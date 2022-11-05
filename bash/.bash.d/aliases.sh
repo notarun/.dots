@@ -18,7 +18,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     alias la='gls -lA --group-directories-first --color=auto'
 fi
 
-
 # vim
 alias v='nvim'
 alias vim='nvim'
