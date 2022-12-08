@@ -54,3 +54,6 @@ tnoremap jk <C-\><C-n>
 
 " keep the copied text in the register while pasting
 xnoremap <leader>p "_dP
+
+" copy file path
+nmap <leader>f :let @+=expand("%")<cr>
