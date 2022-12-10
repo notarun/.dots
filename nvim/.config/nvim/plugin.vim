@@ -40,15 +40,6 @@ call plug#end()
 " emmet (mattn/emmet-vim)
 let g:user_emmet_leader_key=','
 
-" file explorer (preservim/nerdtree)
-map <c-space> :NERDTreeToggle<cr>
-
-" fuzzy finder (junegunn/fzf.vim)
-map <leader>o :Files<cr>
-map <leader>g :GitFiles<cr>
-map <leader>b :Buffers<cr>
-map <leader>t :BTags<cr>
-
 " styled hinting for 'f' (unblevable/quick-scope)
 let g:qs_highlight_on_keys = ['f', 'F']
 
@@ -60,7 +51,6 @@ augroup END
 
 " statusline (itchyny/lightline.vim, mengelbrecht/lightline-bufferline)
 set showtabline=2
-
 let g:lightline = {
 \   'colorscheme': 'gruvbox',
 \   'active': {

@@ -46,9 +46,6 @@ nnoremap <silent> <M-r> :ALEFindReferences<cr>
 nnoremap <silent> <M-h> :ALEHover<cr>
 nnoremap <silent> <M-i> :ALEImport<cr>
 
-" fzf tags under cursor
-nnoremap <silent> <M-t> :execute 'Tags ' . expand('<cword>')<cr>
-
 " normal mode in terminal mode
 tnoremap jk <C-\><C-n>
 
@@ -57,3 +54,13 @@ xnoremap <leader>p "_dP
 
 " copy file path
 nmap <leader>f :let @+=expand("%")<cr>
+
+" file explorer (preservim/nerdtree)
+map <c-space> :NERDTreeToggle<cr>
+
+" fuzzy finder (junegunn/fzf.vim)
+map <leader>o :Files!<cr>
+map <leader>g :GitFiles!<cr>
+map <leader>b :Buffers!<cr>
+map <leader>t :BTags!<cr>
+map <leader>r :Rg!<cr>
