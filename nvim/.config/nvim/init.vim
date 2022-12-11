@@ -48,8 +48,6 @@ set termguicolors
 set colorcolumn=82
 set list listchars=tab:\ \ ,trail:~,nbsp:⋅
 set background=dark
-" colorscheme cake16
-" colorscheme wombat
 let g:gruvbox_italic=1
 let g:gruvbox_undercurl = 0
 let g:gruvbox_contrast_dark = 'hard'

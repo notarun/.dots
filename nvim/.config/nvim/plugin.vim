@@ -9,7 +9,6 @@
 "               powered by vim-plug
 
 call plug#begin('~/.local/share/nvim/plugged')
-    Plug 'zefei/cake16'
     Plug 'mattn/emmet-vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -28,7 +27,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'MaxMEllon/vim-jsx-pretty'
     Plug 'itchyny/vim-highlighturl'
     Plug 'AndrewRadev/splitjoin.vim'
-    Plug 'sheerun/vim-wombat-scheme'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'mengelbrecht/lightline-bufferline'
     Plug 'lukas-reineke/indent-blankline.nvim', { 'for': 'yaml' }

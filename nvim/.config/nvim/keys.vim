@@ -27,10 +27,10 @@ nnoremap <c-n> <esc>:bnext<CR>
 nnoremap <c-p> <esc>:bprevious<CR>
 
 " Window
-map <c-h> <c-w>h
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 
 " edit init.vim
 nnoremap <leader>i <esc>:e $MYVIMRC<cr>
@@ -53,14 +53,14 @@ tnoremap jk <C-\><C-n>
 xnoremap <leader>p "_dP
 
 " copy file path
-nmap <leader>f :let @+=expand("%")<cr>
+nnoremap <leader>f :let @+=expand("%")<cr>
 
 " file explorer (preservim/nerdtree)
-map <c-space> :NERDTreeToggle<cr>
+nnoremap <c-space> :NERDTreeToggle<cr>
 
 " fuzzy finder (junegunn/fzf.vim)
-map <leader>o :Files!<cr>
-map <leader>g :GitFiles!<cr>
-map <leader>b :Buffers!<cr>
-map <leader>t :BTags!<cr>
-map <leader>r :Rg!<cr>
+nnoremap <leader>o :Files!<cr>
+nnoremap <leader>g :GitFiles!<cr>
+nnoremap <leader><tab> :Buffers!<cr>
+nnoremap <leader>t :BTags!<cr>
+nnoremap <leader>r :Rg!<cr>
