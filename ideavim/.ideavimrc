@@ -7,10 +7,12 @@ set incsearch
 set showmatch
 set smartcase
 set ignorecase
+set clipboard^=unnamed,unnamedplus
 
 let mapleader=" "
 
 map Q gq
+
 inoremap jk <esc>
 
 nnoremap ; :
@@ -26,6 +28,8 @@ nnoremap <c-l> <c-w>l
 nnoremap <leader>D <esc>:bdelete<CR>
 nnoremap <c-n> <esc>:bnext<CR>
 nnoremap <c-p> <esc>:bprevious<CR>
+
+xnoremap <leader>p "_dP
 
 " disable bell
 set visualbell
