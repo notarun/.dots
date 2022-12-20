@@ -1,0 +1,32 @@
+" Examples: https://jb.gg/share-ideavimrc
+" Map IDE actions to IdeaVim: https://jb.gg/abva4t
+set scrolloff=5
+
+set hlsearch
+set incsearch
+set showmatch
+set smartcase
+set ignorecase
+
+let mapleader=" "
+
+map Q gq
+inoremap jk <esc>
+
+nnoremap ; :
+nnoremap vv v$h
+nnoremap Y <esc>v$y
+nnoremap <leader><leader> <esc>:nohlsearch<CR>
+
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
+nnoremap <leader>D <esc>:bdelete<CR>
+nnoremap <c-n> <esc>:bnext<CR>
+nnoremap <c-p> <esc>:bprevious<CR>
+
+" disable bell
+set visualbell
+set noerrorbells

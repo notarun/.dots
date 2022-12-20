@@ -15,7 +15,7 @@ nnoremap k gk
 nnoremap vv v$h
 inoremap jk <esc>
 nnoremap Y <esc>v$y
-nnoremap <space><space> <esc>:nohlsearch<CR>
+nnoremap <leader><leader> <esc>:nohlsearch<CR>
 
 " ctrl-s to save
 nnoremap <c-s> <esc>:w<cr>
