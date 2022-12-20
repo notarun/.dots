@@ -15,6 +15,9 @@ map Q gq
 
 inoremap jk <esc>
 
+inoremap <c-s> <esc>:w<cr>
+nnoremap <c-s> <esc>:w<cr>
+
 nnoremap ; :
 nnoremap vv v$h
 nnoremap Y <esc>v$y
