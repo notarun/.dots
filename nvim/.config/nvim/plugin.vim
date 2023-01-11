@@ -77,7 +77,7 @@ let g:lightline = {
 \ }
 
 " ale (dense-analysis/ale)
-" let g:ale_virtualtext_cursor = 1
+let g:ale_virtualtext_cursor = 0
 let g:ale_completion_enabled = 1
 let g:ale_hover_to_floating_preview = 1
 let g:ale_detail_to_floating_preview = 1
