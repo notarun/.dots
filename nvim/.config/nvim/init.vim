@@ -52,6 +52,7 @@ let g:gruvbox_italic=1
 let g:gruvbox_undercurl = 0
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
+highlight link FloatBorder NormalFloat
 
 " no number when in terminal mode
 autocmd TermOpen * setlocal nonumber
