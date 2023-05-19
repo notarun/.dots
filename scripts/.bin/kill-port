@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#     __   _ ____                       __
+#    / /__(_) / /     ____  ____  _____/ /_
+#   / //_/ / / /_____/ __ \/ __ \/ ___/ __/
+#  / ,< / / / /_____/ /_/ / /_/ / /  / /_
+# /_/|_/_/_/_/     / .___/\____/_/   \__/
+#                 /_/
+
+print_help() {
+  # Usage: kill-port [PORT]
+  printf "Usage: kill-port [port]\n"
+}
+
+PORT=$1
+test -z "$PORT" && print_help && exit
+PID=$(lsof -t -i:"$PORT" -sTCP:LISTEN)
+test -z "$PID" && printf "Process not found\n" && exit
+kill -9 "$PID" && printf "Killed PID %s\n" "$PID"
