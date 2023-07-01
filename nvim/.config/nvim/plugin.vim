@@ -30,9 +30,9 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'editorconfig/editorconfig-vim'
     Plug 'mengelbrecht/lightline-bufferline'
     Plug 'lukas-reineke/indent-blankline.nvim', { 'for': 'yaml' }
-    Plug 'rmagatti/auto-session'
     Plug 'notarun/snipmate.vim'
     Plug 'morhetz/gruvbox'
+    Plug 'tikhomirov/vim-glsl'
 call plug#end()
 
 " emmet (mattn/emmet-vim)
