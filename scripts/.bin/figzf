@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#     _____             ____
+#    / __(_)___ _____  / __/
+#   / /_/ / __ `/_  / / /_
+#  / __/ / /_/ / / /_/ __/
+# /_/ /_/\__, / /___/_/
+#       /____/
+
+print_help() {
+  printf "Usage: figzf [message]\n"
+}
+
+MESSAGE=$1
+test -z "$MESSAGE" && print_help && exit
+figlet "$MESSAGE" -f "$(figlist | awk '/Figlet/{p=!p;next}p' | fzf)"
