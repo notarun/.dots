@@ -1,0 +1,6 @@
+[/]
+custom-keybindings=@as []
+home=['<Super>e']
+search=['<Super>space']
+terminal=['<Super>Return']
+www=['<Super>w']
