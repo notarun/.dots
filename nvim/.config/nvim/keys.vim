@@ -40,11 +40,14 @@ nnoremap <leader>i <esc>:e $MYVIMRC<cr>
 "  - else use `o` to add a new line
 nnoremap <expr> <cr> CurrentWinIsQuickFix() ? ':.cc<cr>' : 'o<esc>'
 
+" use `q` key to close quick fix list
+autocmd FileType qf nnoremap <buffer> q :cclose<CR>
+
 " ale lsp features
-nnoremap <silent> <M-d> :ALEGoToDefinition<cr>
-nnoremap <silent> <M-r> :ALEFindReferences<cr>
-nnoremap <silent> <M-h> :ALEHover<cr>
-nnoremap <silent> <M-i> :ALEImport<cr>
+" nnoremap <silent> <M-d> :ALEGoToDefinition<cr>
+" nnoremap <silent> <M-r> :ALEFindReferences<cr>
+" nnoremap <silent> <M-h> :ALEHover<cr>
+" nnoremap <silent> <M-i> :ALEImport<cr>
 
 " normal mode in terminal mode
 tnoremap jk <C-\><C-n>

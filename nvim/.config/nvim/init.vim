@@ -34,7 +34,7 @@ set ignorecase
 set clipboard^=unnamed,unnamedplus  " use system clipboard
 let loaded_netrwPlugin = 1          " disable netrw
 set undofile                        " undo after file close
-set completeopt-=preview            " hide preview window in completion mode
+" set completeopt-=preview            " hide preview window in completion mode
 
 " ui
 set number
