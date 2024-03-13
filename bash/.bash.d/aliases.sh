@@ -11,11 +11,11 @@ alias l='ls'
 alias ls='ls --color=auto'
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    alias ll='ls -l --group-directories-first'
-    alias la='ls -lA --group-directories-first'
+    alias ll='ls -l --group-directories-first --hyperlink=auto'
+    alias la='ls -lA --group-directories-first --hyperlink=auto'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    alias ll='gls -l --group-directories-first --color=auto'
-    alias la='gls -lA --group-directories-first --color=auto'
+    alias ll='gls -l --group-directories-first --color=auto --hyperlink=auto'
+    alias la='gls -lA --group-directories-first --color=auto --hyperlink=auto'
 fi
 
 # vim
