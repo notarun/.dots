@@ -67,3 +67,7 @@ nnoremap <leader>g :GitFiles!<cr>
 nnoremap <leader><tab> :Buffers!<cr>
 nnoremap <leader>t :BTags!<cr>
 nnoremap <leader>r :Rg!<cr>
+
+" scratch buffer
+" https://jakeworth.com/vim-scratchpad/
+nnoremap <leader>q :e ~/buffer<cr>
