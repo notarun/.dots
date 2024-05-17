@@ -16,7 +16,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'preservim/nerdtree'
     Plug 'tpope/vim-surround'
-    Plug 'tomtom/tcomment_vim'
     Plug 'lambdalisue/suda.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'itchyny/lightline.vim'
@@ -35,6 +34,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'MaxMEllon/vim-jsx-pretty'
     Plug 'tikhomirov/vim-glsl'
     Plug 'posva/vim-vue'
+    Plug 'isobit/vim-caddyfile'
     Plug 'hashivim/vim-terraform'
 
     Plug 'prabirshrestha/vim-lsp'
