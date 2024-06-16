@@ -38,3 +38,6 @@ alias gchm='git checkout -- $(git ls-files -m | fzf -m)'  # checkout multiple fi
 
 # xclip
 alias xc='xclip -selection clipboard'
+
+# yaegi
+alias yaegi='rlwrap yaegi'

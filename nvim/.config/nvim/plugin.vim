@@ -22,7 +22,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'rbgrouleff/bclose.vim'
     Plug 'unblevable/quick-scope'
     Plug 'AndrewRadev/splitjoin.vim'
-    Plug 'editorconfig/editorconfig-vim'
     Plug 'mengelbrecht/lightline-bufferline'
     Plug 'lukas-reineke/indent-blankline.nvim', { 'for': 'yaml' }
     Plug 'notarun/snipmate.vim'
@@ -43,8 +42,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
     Plug 'dense-analysis/ale'
     Plug 'rhysd/vim-lsp-ale'
-
-    Plug 'github/copilot.vim'
 call plug#end()
 
 " emmet (mattn/emmet-vim)
@@ -163,3 +160,6 @@ let test#strategy = 'neovim'
 
 " auto-session
 lua require('auto-session').setup {}
+
+" lsp-settings
+let g:lsp_settings_filetype_vue = ['typescript-language-server', 'volar-server']
