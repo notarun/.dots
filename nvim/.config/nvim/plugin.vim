@@ -155,3 +155,6 @@ lua require('auto-session').setup {}
 
 " lsp-settings
 let g:lsp_settings_filetype_vue = ['typescript-language-server', 'volar-server']
+
+" fzf.vim
+let g:fzf_preview_window = 'down:70%'
