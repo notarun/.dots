@@ -42,6 +42,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
     Plug 'dense-analysis/ale'
     Plug 'rhysd/vim-lsp-ale'
+    Plug 'jiz4oh/vim-lspfuzzy'
 call plug#end()
 
 " emmet (mattn/emmet-vim)
@@ -93,23 +94,18 @@ function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> gs <plug>(lsp-document-symbol-search)
-    " nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-    nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
+
     nmap <buffer> <leader>rn <plug>(lsp-rename)
-    " nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-    " nmap <buffer> ]g <plug>(lsp-next-diagnostic)
     nmap <buffer> K <plug>(lsp-hover)
-    " nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
-    " nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
-    nmap <buffer> ca <Plug>(lsp-code-action-float)
+    nmap <buffer> ca :FzfLspCodeAction!<cr>
+    nmap <buffer> gt :FzfLspTypeDefinition!<cr>
+    nmap <buffer> gi :FzfLspImplementation!<cr>
+    nmap <buffer> gr :FzfLspReferences!<cr>
+    nmap <buffer> gd :FzfLspDefintion!<cr>
+    nmap <buffer> gs :FzfLspDocumentSymbol!<cr>
 
     let g:lsp_format_sync_timeout = 1000
     autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-    " refer to doc to add more commands
 endfunction
 
 augroup lsp_install
@@ -137,10 +133,6 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:ale_virtualtext_cursor = 0
 let g:ale_detail_to_floating_preview = 1
 let g:ale_floating_window_border = [' ', ' ', ' ', ' ', ' ', ' ']
-" let g:ale_disable_lsp = 1
-" let g:ale_use_neovim_diagnostics_api = 1
-" let g:ale_hover_to_floating_preview = 1
-" let g:ale_linters = {'vue': ['vls']}
 let g:ale_fixers =
       \ {'javascript': ['eslint', 'prettier']
       \ , 'typescript': ['eslint', 'prettier']
