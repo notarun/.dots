@@ -101,7 +101,7 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> gt :FzfLspTypeDefinition!<cr>
     nmap <buffer> gi :FzfLspImplementation!<cr>
     nmap <buffer> gr :FzfLspReferences!<cr>
-    nmap <buffer> gd :FzfLspDefintion!<cr>
+    nmap <buffer> gd :FzfLspDefinition!<cr>
     nmap <buffer> gs :FzfLspDocumentSymbol!<cr>
 
     let g:lsp_format_sync_timeout = 1000
@@ -134,12 +134,16 @@ let g:ale_virtualtext_cursor = 0
 let g:ale_detail_to_floating_preview = 1
 let g:ale_floating_window_border = [' ', ' ', ' ', ' ', ' ', ' ']
 let g:ale_fixers =
-      \ {'javascript': ['eslint', 'prettier']
-      \ , 'typescript': ['eslint', 'prettier']
-      \ , 'go': ['gofumpt', 'goimports']
-      \ , 'html': ['eslint', 'prettier']
-      \ , 'vue': ['eslint', 'prettier']
-      \ , 'python': ['black']}
+  \ {'javascript': ['biome', 'eslint', 'prettier']
+  \ , 'typescript': ['eslint', 'prettier']
+  \ , 'go': ['gofumpt', 'goimports']
+  \ , 'html': ['eslint', 'prettier']
+  \ , 'vue': ['eslint', 'prettier']
+  \ , 'python': ['ruff']}
+
+let g:ale_linters =
+  \ {'javascript': ['biome']
+  \ , 'python': ['ruff']}
 
 " suda (lambdalisue/suda.vim)
 let g:suda_smart_edit = 1

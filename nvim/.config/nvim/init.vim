@@ -60,3 +60,5 @@ autocmd TermOpen * setlocal nonumber
 " per-project .nvimrc
 set exrc
 set secure
+
+au BufRead,BufNewFile *.html set filetype=html
