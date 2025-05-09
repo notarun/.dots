@@ -1,5 +1,12 @@
 # asdf-vm
 
+# linux
+
+# pacman install
+if [ -d "$HOME/.asdf/shims" ]; then
+    export PATH="$HOME/.asdf/shims:$PATH"
+fi
+
 # https://asdf-vm.com/guide/getting-started.htm
 # for the linux install
 if [ -f "$HOME/.asdf/asdf.sh" ]; then
