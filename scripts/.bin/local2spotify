@@ -1,0 +1,193 @@
+#!/usr/bin/env -S uv run --script
+
+# This Python script scans a local music directory,
+# searches for corresponding tracks on Spotify, and automatically adds them
+# to a new playlist on your Spotify account.
+#
+# Before running, configure the following environment variables:
+# SPOTIPY_CLIENT_ID='YOUR_CLIENT_ID'
+# SPOTIPY_CLIENT_SECRET='YOUR_CLIENT_SECRET'
+# SPOTIPY_REDIRECT_URI='http://localhost:8888/callback'
+
+# /// script
+# requires-python = ">=3.13"
+# dependencies = [
+#     "spotipy",
+# ]
+# ///
+import os
+import argparse
+import spotipy
+from spotipy.oauth2 import SpotifyOAuth
+
+# Supported audio file extensions
+AUDIO_EXTENSIONS = {".mp3", ".flac", ".m4a", ".wav", ".ogg"}
+
+
+def get_spotify_client(username):
+    """Authenticates with Spotify and returns a client object."""
+    # The scope defines the permissions the script is requesting.
+    # 'playlist-modify-public' allows creating and adding to public playlists.
+    # Use 'playlist-modify-private' for private playlists.
+    scope = "playlist-modify-public"
+    try:
+        return spotipy.Spotify(
+            auth_manager=SpotifyOAuth(
+                scope=scope,
+                username=username,
+            )
+        )
+    except spotipy.SpotifyException as e:
+        print(
+            "Authentication failed. Please check your environment variables:"
+        )
+        print(
+            "SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI"
+        )
+        print(f"Error details: {e}")
+        exit()
+
+
+def find_audio_files(directory):
+    """Scans a directory and its subdirectories for audio files."""
+    audio_files = []
+    print(f"Scanning for audio files in '{directory}'...")
+    for root, _, files in os.walk(directory):
+        for file in files:
+            if os.path.splitext(file)[1].lower() in AUDIO_EXTENSIONS:
+                audio_files.append(os.path.join(root, file))
+    return audio_files
+
+
+def parse_filename(file_path):
+    """
+    Parses the filename to extract artist and title.
+    Assumes the format 'Artist - Title.ext'.
+    """
+    filename = os.path.basename(file_path)
+    name_without_ext = os.path.splitext(filename)[0]
+
+    # Split only on the first ' - ' in case the title contains a hyphen
+    parts = name_without_ext.split(" - ", 1)
+    if len(parts) == 2:
+        artist, title = parts
+        # Clean up potential extra info in parentheses or brackets
+        title = title.split(" (")[0].split(" [")[0]
+        return artist.strip(), title.strip()
+    return None, None
+
+
+def search_spotify_track(sp, artist, title):
+    """Searches for a track on Spotify and returns its URI."""
+    query = f"artist:{artist} track:{title}"
+    try:
+        results = sp.search(q=query, type="track", limit=1)
+        if results["tracks"]["items"]:
+            return results["tracks"]["items"][0]["uri"]
+    except spotipy.SpotifyException as e:
+        print(f"Error searching for '{artist} - {title}': {e}")
+    return None
+
+
+def add_tracks_to_playlist(sp, playlist_id, track_uris):
+    """Adds tracks to a Spotify playlist, handling the 100-track limit."""
+    if not track_uris:
+        print("No tracks to add.")
+        return
+
+    # Spotify API allows adding a maximum of 100 tracks per request
+    for i in range(0, len(track_uris), 100):
+        chunk = track_uris[i : i + 100]
+        try:
+            sp.playlist_add_items(playlist_id, chunk)
+        except spotipy.SpotifyException as e:
+            print(f"Error adding tracks to playlist: {e}")
+            break
+    print(f"Successfully added {len(track_uris)} tracks.")
+
+
+def main():
+    """Main function to parse arguments and run the script."""
+    parser = argparse.ArgumentParser(
+        description="Create a Spotify playlist from local audio files.",
+        formatter_class=argparse.RawTextHelpFormatter,
+    )
+    parser.add_argument(
+        "music_directory",
+        help="The absolute path to your music directory.",
+    )
+    parser.add_argument(
+        "spotify_username",
+        help="Your Spotify Username (ID).\nFind it on your Spotify account page: https://www.spotify.com/account/overview/",
+    )
+    parser.add_argument(
+        "-p",
+        "--playlist-name",
+        default="My Local Music Imports",
+        help="The name for the new Spotify playlist (default: 'My Local Music Imports').",
+    )
+    args = parser.parse_args()
+
+    sp = get_spotify_client(args.spotify_username)
+
+    local_files = find_audio_files(args.music_directory)
+    if not local_files:
+        print("No audio files found in the specified directory. Exiting.")
+        return
+    print(f"Found {len(local_files)} audio files.\n")
+
+    track_uris = []
+    not_found_count = 0
+    print("Searching for tracks on Spotify...")
+    for file_path in local_files:
+        artist, title = parse_filename(file_path)
+        if artist and title:
+            print(f"  - Searching for: {artist} - {title}")
+            uri = search_spotify_track(sp, artist, title)
+            if uri:
+                track_uris.append(uri)
+                print("    > Found on Spotify.")
+            else:
+                not_found_count += 1
+                print("    > Not found on Spotify.")
+        else:
+            filename = os.path.basename(file_path)
+            print(
+                f"  - Could not parse artist/title from '{filename}'. Skipping."
+            )
+
+    print("\n--- Search Complete ---")
+    print(f"Found {len(track_uris)} out of {len(local_files)} tracks on Spotify.")
+    if not_found_count > 0:
+        print(f"{not_found_count} tracks could not be found.")
+    print("-----------------------\n")
+
+    if not track_uris:
+        print("No tracks were found on Spotify to add to a playlist. Exiting.")
+        return
+
+    print(f"Creating playlist '{args.playlist_name}'...")
+    try:
+        playlist = sp.user_playlist_create(
+            user=args.spotify_username,
+            name=args.playlist_name,
+            public=True,
+        )
+        playlist_id = playlist["id"]
+        playlist_url = playlist["external_urls"]["spotify"]
+        print(f"Playlist created successfully!")
+    except spotipy.SpotifyException as e:
+        print(f"Error creating playlist: {e}")
+        return
+
+    print("\nAdding tracks to the playlist...")
+    add_tracks_to_playlist(sp, playlist_id, track_uris)
+
+    print("\n--- All Done! ---")
+    print(f"Your new playlist '{args.playlist_name}' is ready.")
+    print(f"View it on Spotify: {playlist_url}")
+    print("-----------------")
+
+
+if __name__ == "__main__":
+    main()
