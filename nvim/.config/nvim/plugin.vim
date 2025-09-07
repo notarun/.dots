@@ -36,6 +36,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'isobit/vim-caddyfile'
     Plug 'hashivim/vim-terraform'
     Plug 'axvr/zepl.vim'
+    Plug 'ledger/vim-ledger'
 
     Plug 'prabirshrestha/vim-lsp'
     Plug 'mattn/vim-lsp-settings'
