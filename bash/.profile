@@ -9,6 +9,8 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export ANDROID_SDK_ROOT="$HOME/.android/sdk"
 export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
 export PATH="$PATH:$ANDROID_SDK_ROOT/emulator"
+export PATH="$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin"
+
 if [ -d "$ANDROID_SDK_ROOT/build-tools" ]; then
   LATEST_BUILD_TOOLS=$(ls "$ANDROID_SDK_ROOT/build-tools" | sort -V | tail -n 1)
   export PATH="$ANDROID_SDK_ROOT/build-tools/$LATEST_BUILD_TOOLS:$PATH"
