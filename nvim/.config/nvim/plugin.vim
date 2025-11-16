@@ -23,7 +23,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'unblevable/quick-scope'
     Plug 'AndrewRadev/splitjoin.vim'
     Plug 'mengelbrecht/lightline-bufferline'
-    Plug 'lukas-reineke/indent-blankline.nvim', { 'for': 'yaml' }
+    Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'notarun/snipmate.vim'
     Plug 'morhetz/gruvbox'
     Plug 'rmagatti/auto-session'
@@ -151,13 +151,15 @@ let g:ale_linters =
 let g:suda_smart_edit = 1
 
 " indent-blankline
-let g:indent_blankline_filetype = ['yaml']
+autocmd FileType yaml lua require('ibl').setup()
 
 " vim-test/vim-test
 let test#strategy = 'neovim'
 
 " auto-session
 lua require('auto-session').setup {}
+silent! delcommand SessionDelete
+command! SessionDelete AutoSession delete
 
 " lsp-settings
 let g:lsp_settings_filetype_vue = ['typescript-language-server', 'volar-server']
