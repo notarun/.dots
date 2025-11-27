@@ -36,7 +36,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'isobit/vim-caddyfile'
     Plug 'hashivim/vim-terraform'
     Plug 'axvr/zepl.vim'
-    Plug 'ledger/vim-ledger'
 
     Plug 'prabirshrestha/vim-lsp'
     Plug 'mattn/vim-lsp-settings'
@@ -164,7 +163,13 @@ EOF
 let g:suda_smart_edit = 1
 
 " indent-blankline
-autocmd FileType yaml lua require('ibl').setup()
+lua << EOF
+  local hooks = require("ibl.hooks")
+  hooks.register(hooks.type.ACTIVE, function(bufnr)
+    return vim.bo[bufnr].filetype == "yaml"
+  end)
+  require("ibl").setup()
+EOF
 
 " vim-test/vim-test
 let test#strategy = 'neovim'
