@@ -26,7 +26,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'notarun/snipmate.vim'
     Plug 'morhetz/gruvbox'
-    Plug 'rmagatti/auto-session'
+    Plug 'olimorris/persisted.nvim'
 
     Plug 'itchyny/vim-highlighturl'
     Plug 'pangloss/vim-javascript'
@@ -147,6 +147,19 @@ let g:ale_linters =
   \ {'javascript': ['biome']
   \ , 'python': ['ruff']}
 
+" persisted.nvim
+lua << EOF
+  require("persisted").setup {
+    autostart = true,
+    should_save = function() return true end,
+    save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"),
+    follow_cwd = true,
+    use_git_branch = true,
+    autoload = true,
+    on_autoload_no_session = function() end,
+  }
+EOF
+
 " suda (lambdalisue/suda.vim)
 let g:suda_smart_edit = 1
 
@@ -155,11 +168,6 @@ autocmd FileType yaml lua require('ibl').setup()
 
 " vim-test/vim-test
 let test#strategy = 'neovim'
-
-" auto-session
-lua require('auto-session').setup {}
-silent! delcommand SessionDelete
-command! SessionDelete AutoSession delete
 
 " lsp-settings
 let g:lsp_settings_filetype_vue = ['typescript-language-server', 'volar-server']
